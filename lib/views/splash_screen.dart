@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:grocery_app/utils/constants/colors.dart';
+import 'package:grocery_app/utils/routers/router.dart';
+import 'package:grocery_app/widgets/custom_button.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -22,15 +24,13 @@ class SplashScreen extends StatelessWidget {
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
           ),
           SizedBox(height: height * .15),
-          Container(
-            decoration: BoxDecoration(color: MyColors.yellow, borderRadius: BorderRadius.circular(20)),
-            width: width * .5,
-            height: height * .07,
-            child: const Center(
-                child: Text(
-              'Explore',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-            )),
+          MyButton(
+            width: width,
+            height: height,
+            color: MyColors.yellow,
+            onTap: () {
+              Navigator.pushNamedAndRemoveUntil(context, MyRouter.home, (route) => false);
+            },
           )
         ]),
       ),

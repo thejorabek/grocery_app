@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_app/views/cart_screen.dart';
 import 'package:grocery_app/views/home_screen.dart';
 import 'package:grocery_app/views/splash_screen.dart';
 
@@ -9,6 +10,8 @@ class MyRouter {
         return MaterialPageRoute(builder: (context) => const SplashScreen());
       case home:
         return MaterialPageRoute(builder: (context) => const HomeScreen());
+      case cart:
+        return MaterialPageRoute(builder: (context) => const CartScreen());
       //     case :
       //         final args = settings.arguments as ;
       //         return MaterialPageRoute(
@@ -28,4 +31,5 @@ class MyRouter {
 
   static const String splash = '/';
   static const String home = '/home';
+  static const String cart = '/cart';
 }
