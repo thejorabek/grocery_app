@@ -4,8 +4,19 @@ import 'package:grocery_app/utils/constants/colors.dart';
 import 'package:grocery_app/utils/routers/router.dart';
 import 'package:grocery_app/widgets/custom_button.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 2)).then((v) => Navigator.pushNamedAndRemoveUntil(context, MyRouter.home, (route) => false));
+  }
 
   @override
   Widget build(BuildContext context) {
