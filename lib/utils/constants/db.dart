@@ -1,20 +1,20 @@
 class MyDB {
   static List<Map<String, dynamic>> catList = [
     {
-      "name": "Olma",
-      "image": "assets/splash_pic.svg",
+      "name": "Apple",
+      "image": "assets/images/apple.png",
     },
     {
-      "name": "Banan",
-      "image": "assets/bread.svg",
+      "name": "Banana",
+      "image": "assets/images/banana.png",
     },
     {
-      "name": "Non",
-      "image": "assets/splash_pic.svg",
+      "name": "Bread",
+      "image": "assets/images/bread.png",
     },
     {
-      "name": "Tuxum",
-      "image": "assets/splash_pic.svg",
+      "name": "Egg",
+      "image": "assets/images/eggs.png",
     },
   ];
 }

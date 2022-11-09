@@ -11,12 +11,13 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
+var searchCon = TextEditingController();
+
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-    var searchCon = TextEditingController();
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -54,18 +55,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: height * .05,
                   width: width * .75,
                   child: TextFormField(
-                      cursorColor: Colors.white,
-                      style: TextStyle(color: Colors.white),
+                      cursorColor: Colors.blue,
+                      style: TextStyle(color: Colors.black, fontSize: 18),
                       controller: searchCon,
+                      cursorHeight: height * .03,
                       decoration: InputDecoration(
-                          focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white, width: 1)),
-                          disabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white, width: 1)),
-                          enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white, width: 1)),
-                          filled: true,
-                          border: OutlineInputBorder(borderSide: BorderSide(width: 10, color: Colors.white)),
-                          hintText: 'Enter your Username',
-                          hintStyle: TextStyle(color: Color.fromARGB(125, 255, 255, 255)),
-                          fillColor: Color.fromARGB(129, 0, 0, 0))),
+                        border: InputBorder.none,
+                        hintText: 'Enter your Username',
+                        hintStyle: TextStyle(color: Color.fromARGB(125, 255, 255, 255)),
+                      )),
                 )
               ]),
             ),
@@ -82,18 +80,33 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Stack(
                           children: [
                             Container(
-                              decoration: BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.circular(20)),
-                              width: 165,
-                              height: 115,
+                              decoration: BoxDecoration(
+                                  color: Colors.blue,
+                                  borderRadius: BorderRadius.circular(20),
+                                  boxShadow: const [BoxShadow(offset: Offset(0, 3), blurRadius: 4, color: Colors.grey)]),
+                              width: width * .4,
+                              height: height * .14,
                               margin: EdgeInsets.only(top: 70),
                             ),
                             Positioned(
-                              left: 25,
-                              bottom: 70,
-                              width: 100,
+                              left: width * .08,
+                              bottom: height * .1,
+                              width: width * .25,
                               height: 100,
-                              child: SvgPicture.asset(MyDB.catList[index].values.last),
+                              child: Image.asset(MyDB.catList[index].values.last),
                             ),
+                            Positioned(
+                              left: width * .15,
+                              top: height * .15,
+                              child: Column(
+                                children: [
+                                  Text(
+                                    MyDB.catList[index].values.first,
+                                    style: TextStyle(fontSize: 18, color: Colors.white, fontWeight: FontWeight.w500),
+                                  )
+                                ],
+                              ),
+                            )
                           ],
                         ),
                       );
