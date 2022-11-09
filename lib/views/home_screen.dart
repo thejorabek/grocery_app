@@ -31,23 +31,34 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(width: width * .03)
         ],
       ),
-      body: Column(
-        children: [
-          Text("Kategoriyalar ro'yxati"),
-          ListView.builder(
-              shrinkWrap: true,
+      body: SizedBox(
+          height: double.infinity,
+          child: GridView.builder(
               itemCount: MyDB.catList.length,
+              physics: BouncingScrollPhysics(),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
               itemBuilder: (context, index) {
-                return Container(
-                    width: width * .1,
-                    height: height * .05,
-                    decoration: BoxDecoration(color: Colors.amber, borderRadius: BorderRadius.circular(20)),
-                    child: Row(
-                      children: [Text(MyDB.catList[index].values.first), SvgPicture.asset('assets/splash_pic.svg')],
-                    ));
-              })
-        ],
-      ),
+                return Padding(
+                  padding: EdgeInsets.only(left: width * .05),
+                  child: Stack(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.circular(20)),
+                        width: 165,
+                        height: 115,
+                        margin: EdgeInsets.only(top: 70),
+                      ),
+                      Positioned(
+                        left: 25,
+                        bottom: 70,
+                        child: SvgPicture.asset(MyDB.catList[index].values.last),
+                        width: 100,
+                        height: 100,
+                      ),
+                    ],
+                  ),
+                );
+              })),
       drawer: Drawer(),
     );
   }

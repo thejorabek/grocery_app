@@ -16,7 +16,7 @@ class SplashScreen extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: width * .07, vertical: height * .07),
         child: Column(children: [
           SizedBox(height: height * .05),
-          SvgPicture.asset('assets/splash_pic.svg'),
+          SvgPicture.asset('assets/svg/splash_pic.svg'),
           SizedBox(height: height * .1),
           const Text(
             'Explore and order your favourite\ngrocery items.',
